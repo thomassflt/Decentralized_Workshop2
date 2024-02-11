@@ -1,0 +1,22 @@
+name: Build and Deploy on Pinata
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build website
+      run: npm run build
+
+    - name: Deploy to Pinata
+      uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
+      with:
+        pin-name: 'My personal site'
+        path: './dist'
+        pinata-api-key: ${{ secrets.PINATA_API_KEY }}
+        pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
+        verbose: true
+        remove-old: false
