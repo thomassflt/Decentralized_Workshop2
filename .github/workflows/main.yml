@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: ls
+    - name: ls /home/runner/work/Decentralized_Workshop2
       run: ls
     - name: pwd
       run: pwd
